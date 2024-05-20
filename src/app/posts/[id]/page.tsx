@@ -11,7 +11,7 @@ const Post = async ({ params }: PostProps) => {
   const currentPost = getPostContent(params.id);
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-between p-24">
+    <section>
       <MDXRemote source={currentPost.content} />
     </section>
   );

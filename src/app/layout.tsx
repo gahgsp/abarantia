@@ -16,7 +16,9 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <html lang="en">
       <body className="px-40 bg-[#E0FBE2]">
         <Header />
-        {children}
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          {children}
+        </main>
       </body>
     </html>
   );

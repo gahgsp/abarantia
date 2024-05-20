@@ -4,7 +4,7 @@ import Link from "next/link";
 const Home = () => {
   const posts = getSortedPosts();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <>
       <ul>
         {posts.map(({ id, title, date }) => (
           <li key={id}>
@@ -14,7 +14,7 @@ const Home = () => {
           </li>
         ))}
       </ul>
-    </main>
+    </>
   );
 };
 
