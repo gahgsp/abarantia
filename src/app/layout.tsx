@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import AuthorCard from "@/components/AuthorCard/AuthorCard";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,10 +15,13 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className="px-40 bg-[#E0FBE2]">
+      <body className="px-40 bg-[#89CFF0]">
         <Header />
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-          {children}
+        <main className="flex min-h-screen items-center justify-between py-12">
+          <aside className="max-w-[300px] min-h-screen">
+            <AuthorCard />
+          </aside>
+          <div className="w-full min-h-screen ml-2">{children}</div>
         </main>
       </body>
     </html>
