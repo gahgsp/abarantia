@@ -5,7 +5,7 @@ interface PostCardProps {
   post: Post;
 }
 
-const PostCard = ({ title, date }: Post) => {
+const PostCard = ({ post: { title, date } }: PostCardProps) => {
   return (
     <div className="flex flex-col rounded-lg bg-white">
       <a className="text-2xl text-slate-800">{title}</a>
