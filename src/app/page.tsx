@@ -1,16 +1,15 @@
+import PostCard from "@/components/PostCard/PostCard";
 import { getSortedPosts } from "@/lib/posts";
-import Link from "next/link";
+import { Post } from "@/types/post";
 
 const Home = () => {
   const posts = getSortedPosts();
   return (
     <>
       <ul>
-        {posts.map(({ id, title, date }) => (
-          <li key={id}>
-            <Link href={`/posts/${id}`}>{title}</Link>
-            <br />
-            <small>{date}</small>
+        {posts.map((post: Post) => (
+          <li key={post.id}>
+            <PostCard post={post} />
           </li>
         ))}
       </ul>
