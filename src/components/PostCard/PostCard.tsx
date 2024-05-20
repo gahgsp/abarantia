@@ -1,13 +1,18 @@
+import { Post } from "@/types/post";
 import { CalendarIcon, HashtagIcon } from "@heroicons/react/outline";
 
-const PostCard = () => {
+interface PostCardProps {
+  post: Post;
+}
+
+const PostCard = ({ title, date }: Post) => {
   return (
     <div className="flex flex-col rounded-lg bg-white">
-      <a className="text-2xl text-slate-800">How to Typescript in React</a>
+      <a className="text-2xl text-slate-800">{title}</a>
       <div className="flex flex-row items-center">
         <div className="flex flex-row items-center justify-between">
           <CalendarIcon className="h-6 w-6" />
-          <span className="text-sm font-medium">2022.12.12</span>
+          <span className="text-sm font-medium">{date}</span>
         </div>
         <div className="flex flex-row items-center justify-between">
           <HashtagIcon className="h-6 w-6" />
