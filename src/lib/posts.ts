@@ -28,17 +28,6 @@ export const getSortedPosts = (): Post[] => {
   });
 };
 
-export const getAllPostIds = () => {
-  const fileNames = fs.readdirSync(POSTS_DIRECTORY);
-  return fileNames.map((fileName: string) => {
-    return {
-      params: {
-        id: fileName.replace(/\.mdx?$/, ""),
-      },
-    };
-  });
-};
-
 export const getPostContent = (id: string): Post => {
   const fullPath = path.join(POSTS_DIRECTORY, `${id}.mdx`);
   console.log(fullPath);
