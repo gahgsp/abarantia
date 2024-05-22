@@ -11,7 +11,7 @@ const Post = async ({ params }: PostProps) => {
   const currentPost = getPostContent(params.id);
 
   return (
-    <section>
+    <section className="rounded-lg bg-white py-3 px-1">
       <MDXRemote source={currentPost.content} />
     </section>
   );
