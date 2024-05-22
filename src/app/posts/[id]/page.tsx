@@ -1,3 +1,4 @@
+import AddComment from "@/components/AddComment/AddComment";
 import { getPostContent } from "@/lib/posts";
 import { MDXRemote } from "next-mdx-remote/rsc"; // RSC due to using NextJS App Router.
 
@@ -11,8 +12,13 @@ const Post = async ({ params }: PostProps) => {
   const currentPost = getPostContent(params.id);
 
   return (
-    <section className="rounded-lg bg-white py-3 px-1">
-      <MDXRemote source={currentPost.content} />
+    <section>
+      <div className="rounded-lg bg-white py-3 px-1">
+        <MDXRemote source={currentPost.content} />
+      </div>
+      <div className="rounded-lg bg-white py-3 px-1 mt-5">
+        <AddComment />
+      </div>
     </section>
   );
 };
