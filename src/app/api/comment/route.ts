@@ -24,7 +24,6 @@ export const GET = async (_: NextRequest) => {
               console.error("Error while executing SQL command.", error);
               return resolve([]);
             }
-
             return resolve({ comments: rows });
           });
         } catch (error) {
@@ -58,18 +57,17 @@ export const POST = async (request: NextRequest) => {
             return resolve(null);
           }
 
+          const SQL_COMMAND =
+            "INSERT INTO comments (content, author) VALUES (?, ?)";
+
           // TODO: the "author" field will remain as a hardcoded value
           // until I add an user / authentication system.
-          db.run(
-            "INSERT INTO comments (content, author) VALUES (?, ?)",
-            [comment, "prota"],
-            (error) => {
-              if (error) {
-                console.error("Error while executing SQL command.", error);
-              }
-              return resolve(null);
+          db.run(SQL_COMMAND, [comment, "prota"], (error) => {
+            if (error) {
+              console.error("Error while executing SQL command.", error);
             }
-          );
+            return resolve(null);
+          });
         } catch (error) {
           console.error("Failed processing SQL command result.", error);
         } finally {
@@ -84,7 +82,7 @@ export const POST = async (request: NextRequest) => {
     );
   });
 
-  // This return will be undefined while I do not find a clean way to at least
+  // TODO: this return will be undefined while I do not find a clean way to at least
   // get the last inserted ID directly in the run function.
   return Response.json({ newComment });
 };
