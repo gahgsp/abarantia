@@ -4,10 +4,11 @@
  */
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 const AddComment = () => {
   const [comment, setComment] = useState("");
+  const [isSubmitting, startSubmit] = useTransition();
 
   const handleOnTextAreaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
@@ -16,14 +17,16 @@ const AddComment = () => {
   };
 
   const onSubmitComment = async () => {
-    const response = await fetch("/api/comment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ comment }),
+    startSubmit(async () => {
+      const response = await fetch("/api/comment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ comment }),
+      });
+      console.log(await response.json());
     });
-    console.log(response);
   };
 
   return (
@@ -38,9 +41,10 @@ const AddComment = () => {
       ></textarea>
       <button
         onClick={onSubmitComment}
+        disabled={isSubmitting}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded"
       >
-        Send
+        {isSubmitting ? "Publishing..." : "Publish Comment"}
       </button>
     </div>
   );
