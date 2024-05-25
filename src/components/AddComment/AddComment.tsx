@@ -8,6 +8,11 @@ import { useState, useTransition } from "react";
 
 const AddComment = () => {
   const [comment, setComment] = useState("");
+  /**
+   * A transition defines a process that won't block the UI during the render.
+   * This means, even running the request to publish a comment the user is still able
+   * to navigate in the UI (clicking in other actions as well as navigating to a different route / component).
+   */
   const [isSubmitting, startSubmit] = useTransition();
 
   const handleOnTextAreaChange = (
