@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import AuthorCard from "@/components/AuthorCard/AuthorCard";
+import Provider from "./Provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +19,12 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       <body className="px-40 bg-[#89CFF0]">
         <Header />
         <main className="flex min-h-screen items-center justify-between py-12">
-          <aside className="max-w-[300px] min-h-screen">
-            <AuthorCard />
-          </aside>
-          <div className="w-full min-h-screen ml-2">{children}</div>
+          <Provider>
+            <aside className="max-w-[300px] min-h-screen">
+              <AuthorCard />
+            </aside>
+            <div className="w-full min-h-screen ml-2">{children}</div>
+          </Provider>
         </main>
       </body>
     </html>
