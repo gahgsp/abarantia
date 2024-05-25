@@ -4,9 +4,12 @@
  */
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import { useState, useTransition } from "react";
 
 const AddComment = () => {
+  const queryClient = useQueryClient();
+
   const [comment, setComment] = useState("");
   /**
    * A transition defines a process that won't block the UI during the render.
@@ -23,14 +26,15 @@ const AddComment = () => {
 
   const onSubmitComment = async () => {
     startSubmit(async () => {
-      const response = await fetch("/api/comment", {
+      await fetch("/api/comment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ comment }),
       });
-      console.log(await response.json());
+
+      await queryClient.invalidateQueries({ queryKey: ["comments"] });
     });
   };
 

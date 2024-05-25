@@ -29,7 +29,7 @@ NOTE: this may (and will) change as I find new exciting features to learn.
 - [ ] customize and style the loaded MDX file
 - [x] use React Query
 - [x] add a SQL database and load data from it
-- [ ] add a SQL database and save data into it
+- [x] add a SQL database and save data into it
 - [ ] SEO optimization
 
 ## how to run
