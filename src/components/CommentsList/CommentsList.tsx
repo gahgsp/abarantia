@@ -13,7 +13,6 @@ const CommentsList = () => {
   });
 
   const { comments } = data;
-  console.log(comments);
 
   return (
     <section>

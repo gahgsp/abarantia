@@ -30,7 +30,6 @@ export const getSortedPosts = (): Post[] => {
 
 export const getPostContent = (id: string): Post => {
   const fullPath = path.join(POSTS_DIRECTORY, `${id}.mdx`);
-  console.log(fullPath);
   const content = fs.readFileSync(fullPath, "utf8");
 
   const parsedContent = matter(content);
