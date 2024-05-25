@@ -14,6 +14,8 @@ NOTE: this is intented to work as my sketch book for learning Next.js and should
 - React
 - Typescript
 - Tailwind
+- React Query
+- SQLite3
 
 ## features to add
 
