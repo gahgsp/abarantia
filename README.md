@@ -25,8 +25,8 @@ NOTE: this may (and will) change as I find new exciting features to learn.
 - [x] read MDX files dynamically as blog post
 - [x] image optimization using the Image component
 - [ ] customize and style the loaded MDX file
-- [ ] use React Query
-- [ ] add a SQL database and load data from it
+- [x] use React Query
+- [x] add a SQL database and load data from it
 - [ ] add a SQL database and save data into it
 - [ ] SEO optimization
 
