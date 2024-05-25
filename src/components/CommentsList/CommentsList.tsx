@@ -1,6 +1,7 @@
 "use client";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { Suspense } from "react";
 
 const CommentsList = () => {
   const { data } = useSuspenseQuery({
@@ -16,17 +17,24 @@ const CommentsList = () => {
 
   return (
     <section>
-      <ul>
-        {comments.map((comment: any) => (
-          <>
-            <li key={`${comment.id}-${comment.author}`}>
-              <h3>{comment.content}</h3>
-              <span>{comment.author}</span>
-            </li>
-            <hr />
-          </>
-        ))}
-      </ul>
+      <div className="flex items-center justify-center text-lg text-slate-800">
+        <h2>Comments</h2>
+      </div>
+      <div className="py-4 px-4">
+        <Suspense fallback={<span>Loading...</span>}>
+          <ul>
+            {comments.map((comment: any) => (
+              <>
+                <li key={`${comment.id}-${comment.author}`}>
+                  <h3>{comment.content}</h3>
+                  <span>{comment.author}</span>
+                </li>
+                <hr />
+              </>
+            ))}
+          </ul>
+        </Suspense>
+      </div>
     </section>
   );
 };
