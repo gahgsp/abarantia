@@ -4,6 +4,10 @@ abarantia: a mini ~wanna-be~ blogging platform
 
 a small hooby-ish project to learn Next.js using a hands-on approach with the development of a simple blog platform where I can apply different features and learn during the way.
 
+```
+NOTE: this is intented to work as my sketch book for learning Next.js and should be treated as that.
+```
+
 ## tech stack
 
 - Next.js
