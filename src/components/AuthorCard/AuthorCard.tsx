@@ -9,7 +9,7 @@ const AuthorCard = () => {
           fill
           className="w-full object-cover"
           src="/assets/images/avatar.png"
-          alt=""
+          alt="Profile picture from blog's author."
         />
       </div>
       <h2 className="text-xl font-bold text-center">Your Name</h2>
