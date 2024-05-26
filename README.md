@@ -30,6 +30,7 @@ NOTE: this may (and will) change as I find new exciting features to learn.
 - [x] use React Query
 - [x] add a SQL database and load data from it
 - [x] add a SQL database and save data into it
+- [x] custom `create-post` script to generate a new content file
 - [ ] SEO optimization
 
 ## how to run
