@@ -1,5 +1,5 @@
 /**
- * When the component has it's own state, it can not be a Server Component anymore.
+ * When the component has it's own state or listents to user actions, it can not be a Server Component anymore.
  * Therefore, we declare it as a part of the client bundle.
  */
 "use client";
